@@ -8,7 +8,7 @@ A production-style **RAG (Retrieval-Augmented Generation)** system for analysing
 
 | Component | Technology |
 |---|---|
-| LLM | Google Gemini 1.5 Flash (`langchain-google-genai`) |
+| LLM | Google Gemini 2.5 Flash (`langchain-google-genai`) |
 | Embeddings | Local Ollama `nomic-embed-text` |
 | Vector Store | ChromaDB (persistent) |
 | Backend API | FastAPI + LangServe |

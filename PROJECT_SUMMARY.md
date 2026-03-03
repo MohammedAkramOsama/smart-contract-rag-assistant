@@ -50,8 +50,8 @@ It enables clean separation between ingestion, retrieval, and generation stages.
 
 ---
 
-### 2) Gemini 1.5 Flash (LLM)
-Gemini 1.5 Flash was selected due to:
+### 2) Gemini 2.5 Flash (LLM)
+Gemini 2.5 Flash was selected due to:
 - Strong reasoning capabilities
 - Large context window
 - Fast response time
