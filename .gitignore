@@ -1,0 +1,29 @@
+# python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# env
+.env
+venv/
+.venv/
+
+# chroma vector db
+data/chroma_db/
+db/
+
+# uploaded files
+data/uploads/
+
+# system
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# gradio temp
+gradio_cached_examples/
