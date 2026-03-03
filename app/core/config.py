@@ -5,11 +5,10 @@ Centralised configuration management.
 All settings are loaded from environment variables or a .env file.
 """
 
+from functools import lru_cache
 from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from pydantic import Field
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
-from langchain_community.embeddings import OllamaEmbeddings
 
 BASE_DIR: Path = Path(__file__).resolve().parents[2]
 
@@ -58,7 +57,7 @@ class Settings(BaseSettings):
     gradio_host: str = Field("0.0.0.0", alias="GRADIO_HOST")
     gradio_port: int = Field(7860, alias="GRADIO_PORT")
     api_base_url: str = Field("http://localhost:8000", alias="API_BASE_URL")
-    # -------- Embeddings --------
+
     @property
     def embedding_model(self):
         from langchain_community.embeddings import OllamaEmbeddings
@@ -68,6 +67,7 @@ class Settings(BaseSettings):
         )
 
 
+@lru_cache(maxsize=1)
 def get_settings() -> Settings:
-    """Return a cached Settings instance."""
+    """Return a cached Settings instance (loaded once, reused on every call)."""
     return Settings()  # type: ignore[call-arg]
